@@ -12,14 +12,12 @@ html {
 
 body {
   display: grid;
-  grid-auto-flow: row;
   gap: 8rem;
   background-color: #f7f7f7;
-  padding: 8rem 0 16rem 0;
+  padding: 8rem 2rem 16rem 2rem;
 }
 body header {
   display: grid;
-  grid-auto-flow: row;
   gap: 0;
   justify-content: center;
 }
@@ -30,29 +28,26 @@ body header .project-title {
   font-weight: 800;
   line-height: auto;
   font-style: normal;
+  text-align: center;
 }
 body main {
   display: grid;
-  grid-auto-flow: row;
   gap: 8rem;
   justify-content: center;
 }
 body main .type {
   display: grid;
-  grid-auto-flow: row;
   gap: 4rem;
-  padding: 7.2rem 6.4rem;
-  max-width: 107.2rem;
+  padding: 7.4rem 6.4rem;
+  max-width: -moz-max-content;
+  max-width: max-content;
   border: 1px solid #ccc;
   border-radius: 0.8rem;
   background-color: #fff;
 }
 body main .type-header {
   display: grid;
-  grid-auto-flow: row;
   gap: 1.6rem;
-  padding: 0 0 0.8rem 2.4rem;
-  border-left: 2px solid #333;
 }
 body main .type-header__title {
   font-family: "Montserrat", sans-serif;
@@ -69,15 +64,16 @@ body main .type-header__desc {
   font-weight: 400;
   line-height: auto;
   font-style: normal;
+  max-width: 90rem;
 }
 body main .type .section {
   display: grid;
-  grid-auto-flow: row;
   gap: 2.4rem;
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 body main .type .section-header {
   display: grid;
-  grid-auto-flow: row;
   gap: 0.8rem;
 }
 body main .type .section-header__title {
@@ -98,20 +94,21 @@ body main .type .section-header__desc {
   font-weight: 400;
   line-height: auto;
   font-style: normal;
+  max-width: 90rem;
 }
 body main .type .section .files {
-  display: flex;
-  gap: 4.8rem;
-  border-radius: 0.8rem;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 body main .type .section .files__subsection {
   display: grid;
-  grid-auto-flow: row;
   gap: 1.6rem;
+  width: -moz-max-content;
+  width: max-content;
 }
 body main .type .section .files__subsection .config-header {
   display: grid;
-  grid-auto-flow: row;
   gap: 0.2rem;
 }
 body main .type .section .files__subsection .config-header .epochs {
@@ -132,7 +129,6 @@ body main .type .section .files__subsection .config-header .model {
 }
 body main .type .section .files .audio-block {
   display: grid;
-  grid-auto-flow: row;
   gap: 0.6rem;
 }
 body main .type .section .files .audio-block .audio-label {
@@ -152,4 +148,43 @@ body main .type .divider {
   border: none;
   border-top: 1px solid #ccc;
   margin: 0.8rem 0;
+}
+
+@media (max-width: 1092px) {
+  body main .type .section .files {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 850px) {
+  body main .type {
+    padding: 5.4rem 4.4rem;
+  }
+}
+@media (max-width: 810px) {
+  body main .type .section .files {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 587px) {
+  body main .type {
+    padding: 3.4rem 2.4rem;
+  }
+}
+@media (max-width: 547px) {
+  body main .type .section .files {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 450px) {
+  body {
+    padding: 8rem 1rem 16rem 1rem;
+  }
+}
+@media (max-width: 420px) {
+  body main .type {
+    padding: 2.4rem 1.4rem;
+  }
+  body main .type .section .files {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }/*# sourceMappingURL=style.css.map */

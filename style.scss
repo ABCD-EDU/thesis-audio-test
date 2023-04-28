@@ -12,7 +12,6 @@ $montserrat: "Montserrat", sans-serif;
 
 @mixin display-grid($direction, $gap) {
     display: grid;
-    grid-auto-flow: $direction;
     gap: $gap;
 }
 
@@ -31,47 +30,42 @@ html {
 body {
     @include display-grid(row, 8rem);
     background-color: #f7f7f7;
-    padding: 8rem 0 16rem 0;
-
+    padding: 8rem 2rem 16rem 2rem;
     header {
         @include display-grid(row, 0);
         justify-content: center;
         .project-title {
             @include font-specs($montserrat, #333, 3.2rem, 800, auto, normal);
+            text-align: center;
         }
     }
 
     main {
         @include display-grid(row, 8rem);
         justify-content: center;
-
         .type {
             @include display-grid(row, 4rem);
-            padding: 7.2rem 6.4rem;
-            max-width: 107.2rem;
+            padding: 7.4rem 6.4rem;
+            max-width: max-content;
             border: 1px solid #ccc;
             border-radius: 0.8rem;
             background-color: #fff;
-
             &-header {
                 @include display-grid(row, 1.6rem);
-                padding: 0 0 0.8rem 2.4rem;
-                border-left: 2px solid #333;
-
                 &__title {
                     @include font-specs($montserrat, #333, 4.8rem, 400, auto, normal);
                 }
                 &__desc {
                     @include font-specs($montserrat, #333, 1.6rem, 400, auto, normal);
+                    max-width: 90rem;
                 }
             }
 
             .section {
                 @include display-grid(row, 2.4rem);
-
+                max-width: max-content;
                 &-header {
                     @include display-grid(row, 0.8rem);
-
                     &__title {
                         @include font-specs($montserrat, #0b94e5, 2.2rem, 700, auto, normal);
                     }
@@ -80,19 +74,17 @@ body {
                     }
                     &__desc {
                         @include font-specs($montserrat, #333, 1.6rem, 400, auto, normal);
+                        max-width: 90rem;
                     }
                 }
                 .files {
-                    display: flex;
-                    gap: 4.8rem;
-                    border-radius: 0.8rem;
-
+                    @include display-grid(column, 4rem);
+                    grid-template-columns: repeat(4, 1fr);
                     &__subsection {
                         @include display-grid(row, 1.6rem);
-
+                        width: max-content;
                         .config-header {
                             @include display-grid(row, 0.2rem);
-
                             .epochs {
                                 @include font-specs($montserrat, #999, 1.2rem, 600, auto, normal);
                             }
@@ -103,7 +95,6 @@ body {
                     }
                     .audio-block {
                         @include display-grid(row, 0.6rem);
-
                         .audio-label {
                             @include font-specs($montserrat, #333, 1.6rem, 450, auto, italic);
                         }
@@ -121,6 +112,51 @@ body {
                 border-top: 1px solid #ccc;
                 margin: 0.8rem 0;
             }
+        }
+    }
+}
+
+@media (max-width: 1092px) {
+    body main .type .section .files {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    body main .type {
+        padding: 5.4rem 4.4rem;
+    }
+}
+
+@media (max-width: 810px) {
+    body main .type .section .files {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 587px) {
+    body main .type {
+        padding: 3.4rem 2.4rem;
+    }
+}
+
+@media (max-width: 547px) {
+    body main .type .section .files {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    body {
+        padding: 8rem 1rem 16rem 1rem;
+    }
+}
+
+@media (max-width: 420px) {
+    body main .type {
+        padding: 2.4rem 1.4rem;
+        .section .files {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }
